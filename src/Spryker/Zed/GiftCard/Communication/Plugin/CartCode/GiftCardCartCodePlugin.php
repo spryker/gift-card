@@ -5,16 +5,15 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Client\GiftCard\Plugin\CartCode;
+namespace Spryker\Zed\GiftCard\Communication\Plugin\CartCode;
 
 use Generated\Shared\Transfer\MessageTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Client\CartCodeExtension\Dependency\Plugin\CartCodePluginInterface;
+use Spryker\Zed\CartCodeExtension\Dependency\Plugin\CartCodePluginInterface;
 use Spryker\Client\Kernel\AbstractPlugin;
 
 /**
- * @deprecated Will be removed in the next major version.
- * @method \Spryker\Client\GiftCard\GiftCardFactory getFactory()
+ * @method \Spryker\Zed\GiftCard\Business\GiftCardBusinessFactory getFactory()
  */
 class GiftCardCartCodePlugin extends AbstractPlugin implements CartCodePluginInterface
 {
@@ -29,7 +28,7 @@ class GiftCardCartCodePlugin extends AbstractPlugin implements CartCodePluginInt
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function addCandidate(QuoteTransfer $quoteTransfer, string $code): QuoteTransfer
+    public function addCartCode(QuoteTransfer $quoteTransfer, string $code): QuoteTransfer
     {
         return $this->getFactory()
             ->createGiftCardCartCode()
@@ -47,7 +46,7 @@ class GiftCardCartCodePlugin extends AbstractPlugin implements CartCodePluginInt
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function removeCode(QuoteTransfer $quoteTransfer, string $code): QuoteTransfer
+    public function removeCartCode(QuoteTransfer $quoteTransfer, string $code): QuoteTransfer
     {
         return $this->getFactory()
             ->createGiftCardCartCode()
@@ -84,7 +83,7 @@ class GiftCardCartCodePlugin extends AbstractPlugin implements CartCodePluginInt
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function clearAllCodes(QuoteTransfer $quoteTransfer): QuoteTransfer
+    public function clearCartCodes(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         return $this->getFactory()
             ->createGiftCardCartCode()
