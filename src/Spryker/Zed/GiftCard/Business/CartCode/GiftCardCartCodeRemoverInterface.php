@@ -9,7 +9,7 @@ namespace Spryker\Zed\GiftCard\Business\CartCode;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 
-interface GiftCardCartCodeDeleterInterface
+interface GiftCardCartCodeRemoverInterface
 {
     /**
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
