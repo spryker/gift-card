@@ -5,12 +5,12 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\GiftCard\Communication\Plugin;
+namespace Spryker\Zed\GiftCard\Communication\Plugin\Checkout;
 
-use Generated\Shared\Transfer\PaymentMethodsTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Generated\Shared\Transfer\SaveOrderTransfer;
+use Spryker\Zed\CheckoutExtension\Dependency\Plugin\CheckoutDoSaveOrderInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\PaymentExtension\Dependency\Plugin\PaymentMethodFilterPluginInterface;
 
 /**
  * @method \Spryker\Zed\GiftCard\Business\GiftCardFacadeInterface getFacade()
@@ -18,20 +18,22 @@ use Spryker\Zed\PaymentExtension\Dependency\Plugin\PaymentMethodFilterPluginInte
  * @method \Spryker\Zed\GiftCard\GiftCardConfig getConfig()
  * @method \Spryker\Zed\GiftCard\Persistence\GiftCardQueryContainerInterface getQueryContainer()
  */
-class GiftCardPaymentMethodFilterPlugin extends AbstractPlugin implements PaymentMethodFilterPluginInterface
+class GiftCardCheckoutDoSaveOrderPlugin extends AbstractPlugin implements CheckoutDoSaveOrderInterface
 {
     /**
      * {@inheritDoc}
+     * - Saves gift cards items from the quote.
+     * - Saves gift card payments from the quote.
      *
      * @api
      *
-     * @param \Generated\Shared\Transfer\PaymentMethodsTransfer $paymentMethodsTransfer
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
      *
-     * @return \Generated\Shared\Transfer\PaymentMethodsTransfer
+     * @return void
      */
-    public function filterPaymentMethods(PaymentMethodsTransfer $paymentMethodsTransfer, QuoteTransfer $quoteTransfer)
+    public function saveOrder(QuoteTransfer $quoteTransfer, SaveOrderTransfer $saveOrderTransfer)
     {
-        return $this->getFacade()->filterPaymentMethods($paymentMethodsTransfer, $quoteTransfer);
+        $this->getFacade()->saveOrderGiftCards($quoteTransfer, $saveOrderTransfer);
     }
 }
