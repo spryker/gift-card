@@ -86,7 +86,6 @@ class GiftCardQueryContainer extends AbstractQueryContainer implements GiftCardQ
      */
     public function queryGiftCardConfigurationByProductAbstractSku($abstractSku)
     {
-        /** @phpstan-var \Orm\Zed\GiftCard\Persistence\SpyGiftCardProductAbstractConfigurationQuery */
         return $this
             ->getFactory()
             ->createSpyGiftCardProductAbstractConfigurationQuery()
@@ -108,7 +107,6 @@ class GiftCardQueryContainer extends AbstractQueryContainer implements GiftCardQ
      */
     public function queryGiftCardConfigurationByProductSku($concreteSku)
     {
-        /** @phpstan-var \Orm\Zed\GiftCard\Persistence\SpyGiftCardProductConfigurationQuery */
         return $this
             ->getFactory()
             ->createSpyGiftCardProductConfigurationQuery()
@@ -144,7 +142,6 @@ class GiftCardQueryContainer extends AbstractQueryContainer implements GiftCardQ
      */
     public function queryPaymentGiftCardsForIdSalesOrder($idSalesOrder)
     {
-        /** @phpstan-var \Orm\Zed\GiftCard\Persistence\SpyPaymentGiftCardQuery */
         return $this
             ->queryPaymentGiftCards()
             ->useSpySalesPaymentQuery()

@@ -141,7 +141,7 @@ class GiftCardCreator implements GiftCardCreatorInterface
         $giftCardTransfer = new GiftCardTransfer();
         $giftCardMetadata = $giftCardOrderItemMetadata->toArray();
 
-        $giftCardTransfer->setAttributes((array)$this->encodingService->decodeJson($giftCardMetadata[static::ATTRIBUTES], true) ?: null);
+        $giftCardTransfer->setAttributes($this->encodingService->decodeJson($giftCardMetadata[static::ATTRIBUTES], true));
         unset($giftCardMetadata[static::ATTRIBUTES]);
 
         $giftCardTransfer->fromArray($giftCardMetadata, true);
