@@ -13,20 +13,18 @@ use Spryker\Zed\CheckoutExtension\Dependency\Plugin\CheckoutDoSaveOrderInterface
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
 /**
- * @deprecated Use {@link \Spryker\Zed\GiftCard\Communication\Plugin\Checkout\GiftCardPaymentCheckoutDoSaveOrderPlugin}
- * and {@link \Spryker\Zed\GiftCard\Communication\Plugin\Sales\GiftCardOrderItemsPostSavePlugin} instead.
- *
+ * @method \Spryker\Zed\GiftCard\GiftCardConfig getConfig()
  * @method \Spryker\Zed\GiftCard\Business\GiftCardFacadeInterface getFacade()
  * @method \Spryker\Zed\GiftCard\Communication\GiftCardCommunicationFactory getFactory()
- * @method \Spryker\Zed\GiftCard\GiftCardConfig getConfig()
- * @method \Spryker\Zed\GiftCard\Persistence\GiftCardQueryContainerInterface getQueryContainer()
  */
-class GiftCardCheckoutDoSaveOrderPlugin extends AbstractPlugin implements CheckoutDoSaveOrderInterface
+class GiftCardPaymentCheckoutDoSaveOrderPlugin extends AbstractPlugin implements CheckoutDoSaveOrderInterface
 {
     /**
      * {@inheritDoc}
-     * - Saves gift cards items from the quote.
-     * - Saves gift card payments from the quote.
+     * - Iterates over `QuoteTransfer.payments` and saves gift card related payments into the `spy_payment_gift_card` DB table.
+     * - Does not save a payment when `PaymentTransfer.giftCard` is not set.
+     * - Does not save a payment when `PaymentTransfer.amount` is not set.
+     * - Executes a stack of {@link \Spryker\Zed\GiftCard\Dependency\Plugin\GiftCardPaymentSaverPluginInterface} plugins.
      *
      * @api
      *
@@ -35,8 +33,8 @@ class GiftCardCheckoutDoSaveOrderPlugin extends AbstractPlugin implements Checko
      *
      * @return void
      */
-    public function saveOrder(QuoteTransfer $quoteTransfer, SaveOrderTransfer $saveOrderTransfer)
+    public function saveOrder(QuoteTransfer $quoteTransfer, SaveOrderTransfer $saveOrderTransfer): void
     {
-        $this->getFacade()->saveOrderGiftCards($quoteTransfer, $saveOrderTransfer);
+        $this->getFacade()->createGiftCardPaymentsFromQuote($quoteTransfer, $saveOrderTransfer);
     }
 }
