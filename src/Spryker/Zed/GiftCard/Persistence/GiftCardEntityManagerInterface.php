@@ -10,14 +10,14 @@ namespace Spryker\Zed\GiftCard\Persistence;
 interface GiftCardEntityManagerInterface
 {
     /**
-     * @param list<int> $salesPaymentIds
+     * @param array<int> $salesPaymentIds
      *
      * @return void
      */
     public function deletePaymentGiftCardsBySalesPaymentIds(array $salesPaymentIds): void;
 
     /**
-     * @param list<int> $salesOrderItemIds
+     * @param array<int> $salesOrderItemIds
      *
      * @return void
      */
