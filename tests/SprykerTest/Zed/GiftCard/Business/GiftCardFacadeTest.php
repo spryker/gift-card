@@ -573,7 +573,7 @@ class GiftCardFacadeTest extends Unit
     protected function createGiftCardBusinessFactoryMock(): GiftCardBusinessFactory
     {
         return $this->getMockBuilder(GiftCardBusinessFactory::class)
-            ->enableProxyingToOriginalMethods()
+            ->onlyMethods([])
             ->getMock();
     }
 
