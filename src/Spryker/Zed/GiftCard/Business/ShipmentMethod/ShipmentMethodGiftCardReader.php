@@ -24,9 +24,6 @@ class ShipmentMethodGiftCardReader implements ShipmentMethodGiftCardReaderInterf
      */
     protected $giftCardConfig;
 
-    /**
-     * @param \Spryker\Zed\GiftCard\GiftCardConfig $giftCardConfig
-     */
     public function __construct(GiftCardConfig $giftCardConfig)
     {
         $this->giftCardConfig = $giftCardConfig;

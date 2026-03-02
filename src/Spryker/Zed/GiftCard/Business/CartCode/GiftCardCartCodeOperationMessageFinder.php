@@ -36,12 +36,6 @@ class GiftCardCartCodeOperationMessageFinder implements GiftCardCartCodeOperatio
      */
     protected const MESSAGE_TYPE_ERROR = 'error';
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $cartCode
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer|null
-     */
     public function findOperationResponseMessage(QuoteTransfer $quoteTransfer, string $cartCode): ?MessageTransfer
     {
         $giftCardApplySuccessMessageTransfer = $this->findGiftCardApplySuccessMessage($quoteTransfer, $cartCode);
@@ -57,12 +51,6 @@ class GiftCardCartCodeOperationMessageFinder implements GiftCardCartCodeOperatio
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $code
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer|null
-     */
     protected function findGiftCardApplySuccessMessage(QuoteTransfer $quoteTransfer, string $code): ?MessageTransfer
     {
         foreach ($quoteTransfer->getGiftCards() as $giftCard) {
@@ -81,12 +69,6 @@ class GiftCardCartCodeOperationMessageFinder implements GiftCardCartCodeOperatio
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $code
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer|null
-     */
     protected function findGiftCardApplyFailedMessage(QuoteTransfer $quoteTransfer, string $code): ?MessageTransfer
     {
         foreach ($quoteTransfer->getNotApplicableGiftCardCodes() as $giftCardCode) {

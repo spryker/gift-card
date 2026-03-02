@@ -39,10 +39,5 @@ interface GiftCardCartCodeInterface
      */
     public function getOperationResponseMessage(QuoteTransfer $quoteTransfer, $code): ?MessageTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function clearAllCodes(QuoteTransfer $quoteTransfer): QuoteTransfer;
 }

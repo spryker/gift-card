@@ -35,12 +35,6 @@ class ShipmentGroupMethodFilter implements ShipmentGroupMethodFilterInterface
      */
     protected $giftCardConfigReader;
 
-    /**
-     * @param \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodGiftCardFilterInterface $allowedShipmentMethodGiftCardFilter
-     * @param \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodGiftCardFilterInterface $disallowedShipmentMethodGiftCardFilter
-     * @param \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodGiftCardCheckerInterface $shipmentMethodGiftCardChecker
-     * @param \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodGiftCardReaderInterface $giftCardConfigReader
-     */
     public function __construct(
         ShipmentMethodGiftCardFilterInterface $allowedShipmentMethodGiftCardFilter,
         ShipmentMethodGiftCardFilterInterface $disallowedShipmentMethodGiftCardFilter,

@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\PaymentTransfer;
 
 interface PaymentMapKeyBuilderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PaymentTransfer $paymentTransfer
-     *
-     * @return string
-     */
     public function buildMapKey(PaymentTransfer $paymentTransfer): string;
 }

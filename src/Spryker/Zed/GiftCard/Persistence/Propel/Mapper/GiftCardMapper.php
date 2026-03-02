@@ -20,12 +20,6 @@ use Propel\Runtime\Collection\ObjectCollection;
 
 class GiftCardMapper
 {
-    /**
-     * @param \Orm\Zed\GiftCard\Persistence\SpyGiftCardProductAbstractConfiguration $giftCardProductAbstractConfigurationEntity
-     * @param \Generated\Shared\Transfer\GiftCardAbstractProductConfigurationForProductAbstractTransfer $giftCardAbstractProductConfigurationForProductAbstractTransfer
-     *
-     * @return \Generated\Shared\Transfer\GiftCardAbstractProductConfigurationForProductAbstractTransfer
-     */
     public function mapGiftCardProductAbstractConfigurationEntityToGiftCardAbstractProductConfigurationForProductAbstractTransfer(
         SpyGiftCardProductAbstractConfiguration $giftCardProductAbstractConfigurationEntity,
         GiftCardAbstractProductConfigurationForProductAbstractTransfer $giftCardAbstractProductConfigurationForProductAbstractTransfer
@@ -66,12 +60,6 @@ class GiftCardMapper
         return $giftCardAbstractProductConfigurationForProductAbstractTransfers;
     }
 
-    /**
-     * @param \Orm\Zed\GiftCard\Persistence\SpyGiftCardProductConfiguration $giftCardProductConfigurationEntity
-     * @param \Generated\Shared\Transfer\GiftCardProductConfigurationForProductTransfer $giftCardProductConfigurationForProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\GiftCardProductConfigurationForProductTransfer
-     */
     public function mapGiftCardProductConfigurationEntityToGiftCardProductConfigurationForProductTransfer(
         SpyGiftCardProductConfiguration $giftCardProductConfigurationEntity,
         GiftCardProductConfigurationForProductTransfer $giftCardProductConfigurationForProductTransfer
@@ -126,12 +114,6 @@ class GiftCardMapper
         return $paymentGiftCardTransfers;
     }
 
-    /**
-     * @param \Orm\Zed\GiftCard\Persistence\SpyPaymentGiftCard $paymentGiftCardEntity
-     * @param \Generated\Shared\Transfer\PaymentGiftCardTransfer $paymentGiftCardTransfer
-     *
-     * @return \Generated\Shared\Transfer\PaymentGiftCardTransfer
-     */
     protected function mapPaymentGiftCardEntityToPaymentGiftCardTransfer(
         SpyPaymentGiftCard $paymentGiftCardEntity,
         PaymentGiftCardTransfer $paymentGiftCardTransfer

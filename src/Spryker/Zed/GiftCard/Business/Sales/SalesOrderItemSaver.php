@@ -53,21 +53,11 @@ class SalesOrderItemSaver implements SalesOrderItemSaverInterface
         $this->doSaveSalesOrderGiftCardItems($quoteTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     public function saveSalesOrderItemGiftCards(QuoteTransfer $quoteTransfer): void
     {
         $this->doSaveSalesOrderGiftCardItems($quoteTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     protected function doSaveSalesOrderGiftCardItems(QuoteTransfer $quoteTransfer): void
     {
         $this->handleDatabaseTransaction(function () use ($quoteTransfer) {

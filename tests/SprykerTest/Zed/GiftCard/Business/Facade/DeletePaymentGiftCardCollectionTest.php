@@ -29,9 +29,6 @@ class DeletePaymentGiftCardCollectionTest extends Unit
      */
     protected GiftCardBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testDeletesFoundBySalesPaymentIdsGiftCardPayments(): void
     {
         // Arrange
@@ -50,9 +47,6 @@ class DeletePaymentGiftCardCollectionTest extends Unit
         $this->tester->assertPaymentGiftCardExistBySalesPaymentId($idSalesPayment2, 1);
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNothingWhenGiftCardPaymentsAreNotFoundBySalesPaymentIds(): void
     {
         // Arrange

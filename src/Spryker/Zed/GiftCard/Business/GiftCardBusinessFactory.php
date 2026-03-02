@@ -126,49 +126,31 @@ class GiftCardBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\CartCode\GiftCardCartCodeAdderInterface
-     */
     public function createGiftCardCartCodeAdder(): GiftCardCartCodeAdderInterface
     {
         return new GiftCardCartCodeAdder();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\CartCode\GiftCardCartCodeRemoverInterface
-     */
     public function createGiftCardCartCodeRemover(): GiftCardCartCodeRemoverInterface
     {
         return new GiftCardCartCodeRemover();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\CartCode\GiftCardCartCodeClearerInterface
-     */
     public function createGiftCardCartCodeClearer(): GiftCardCartCodeClearerInterface
     {
         return new GiftCardCartCodeClearer();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\CartCode\GiftCardCartCodeOperationMessageFinderInterface
-     */
     public function createGiftCardCartCodeOperationMessageFinder(): GiftCardCartCodeOperationMessageFinderInterface
     {
         return new GiftCardCartCodeOperationMessageFinder();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\Builder\PaymentMapKeyBuilderInterface
-     */
     public function createPaymentMapKeyBuilder(): PaymentMapKeyBuilderInterface
     {
         return new PaymentMapKeyBuilder();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\Deleter\PaymentGiftCardDeleterInterface
-     */
     public function createPaymentGiftCardDeleter(): PaymentGiftCardDeleterInterface
     {
         return new PaymentGiftCardDeleter(
@@ -176,9 +158,6 @@ class GiftCardBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\Deleter\SalesOrderItemGiftCardDeleterInterface
-     */
     public function createSalesOrderItemGiftCardDeleter(): SalesOrderItemGiftCardDeleterInterface
     {
         return new SalesOrderItemGiftCardDeleter($this->getEntityManager());
@@ -335,9 +314,6 @@ class GiftCardBusinessFactory extends AbstractBusinessFactory
         return new ShipmentMethodFilter($this->getConfig());
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\ShipmentGroup\ShipmentGroupMethodFilterInterface
-     */
     public function createShipmentGroupMethodFilter(): ShipmentGroupMethodFilterInterface
     {
         return new ShipmentGroupMethodFilter(
@@ -348,9 +324,6 @@ class GiftCardBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodGiftCardFilterInterface
-     */
     public function createAllowedShipmentMethodGiftCardFilter(): ShipmentMethodGiftCardFilterInterface
     {
         return new ShipmentMethodGiftCardFilter(
@@ -359,9 +332,6 @@ class GiftCardBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodGiftCardFilterInterface
-     */
     public function createDisallowedShipmentMethodGiftCardFilter(): ShipmentMethodGiftCardFilterInterface
     {
         return new ShipmentMethodGiftCardFilter(
@@ -370,57 +340,36 @@ class GiftCardBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodCollectionRemoverInterface
-     */
     public function createShipmentMethodCollectionRemover(): ShipmentMethodCollectionRemoverInterface
     {
         return new ShipmentMethodCollectionRemover();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodGiftCardReaderInterface
-     */
     public function createShipmentMethodGiftCardReader(): ShipmentMethodGiftCardReaderInterface
     {
         return new ShipmentMethodGiftCardReader($this->getConfig());
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodGiftCardCheckerInterface
-     */
     public function createShipmentMethodGiftCardChecker(): ShipmentMethodGiftCardCheckerInterface
     {
         return new ShipmentMethodGiftCardChecker();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodGiftCardAllowanceCheckerInterface
-     */
     public function createShipmentMethodGiftCardAllowedChecker(): ShipmentMethodGiftCardAllowanceCheckerInterface
     {
         return new ShipmentMethodGiftCardAllowedChecker();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodGiftCardAllowanceCheckerInterface
-     */
     public function createShipmentMethodGiftCardDisallowedChecker(): ShipmentMethodGiftCardAllowanceCheckerInterface
     {
         return new ShipmentMethodGiftCardDisallowedChecker();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\Checker\GiftCardItemsCheckerInterface
-     */
     public function createGiftCardItemsChecker(): GiftCardItemsCheckerInterface
     {
         return new GiftCardItemsChecker();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\Shipment\ShipmentGroupsSanitizerInterface
-     */
     public function createShipmentGroupSanitizer(): ShipmentGroupsSanitizerInterface
     {
         return new ShipmentGroupsSanitizer($this->createGiftCardItemsChecker());

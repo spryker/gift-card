@@ -75,9 +75,6 @@ class GiftCardFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testFindByIdShouldReturnTransferObjectForExistingGiftCard(): void
     {
         $giftCardTransfer = $this->tester->haveGiftCard(['attributes' => []]);
@@ -88,9 +85,6 @@ class GiftCardFacadeTest extends Unit
         $this->assertSame($giftCardTransfer->getIdGiftCard(), $foundGiftCardTransfer->getIdGiftCard());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateShouldAssertRequiredTransferObjectFields(): void
     {
         $giftCardTransfer = (new GiftCardBuilder([
@@ -103,9 +97,6 @@ class GiftCardFacadeTest extends Unit
         $this->getFacade()->create($giftCardTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateShouldPersistGiftCard(): void
     {
         // Arrange
@@ -156,9 +147,6 @@ class GiftCardFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return array
-     */
     public function filterShipmentGroupMethodsShouldRemoveAllowedShipmentMethodsDataProvider(): array
     {
         return [
@@ -167,9 +155,6 @@ class GiftCardFacadeTest extends Unit
         ];
     }
 
-    /**
-     * @return void
-     */
     public function testAddCartCodeAddsGiftCardToQuote(): void
     {
         // Arrange
@@ -186,9 +171,6 @@ class GiftCardFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAddCartCodeCantAddGiftCardToQuoteWithGiftCardAlreadyAddedToQuote(): void
     {
         // Arrange
@@ -201,9 +183,6 @@ class GiftCardFacadeTest extends Unit
         $this->assertCount(1, $resultQuoteTransfer->getGiftCards());
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveCartCodeRemovesGiftCardFromQuote(): void
     {
         // Arrange
@@ -216,9 +195,6 @@ class GiftCardFacadeTest extends Unit
         $this->assertCount(0, $resultQuoteTransfer->getGiftCards());
     }
 
-    /**
-     * @return void
-     */
     public function testClearCartCodesRemovesGiftCardsFromQuote(): void
     {
         // Arrange
@@ -231,9 +207,6 @@ class GiftCardFacadeTest extends Unit
         $this->assertCount(0, $resultQuoteTransfer->getGiftCards());
     }
 
-    /**
-     * @return void
-     */
     public function testFindOperationResponseMessageReturnsMessageTransfer(): void
     {
         // Arrange
@@ -246,9 +219,6 @@ class GiftCardFacadeTest extends Unit
         $this->assertNotNull($messageTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveOrderGiftCardsShouldCreatePaymentGiftCardEntity(): void
     {
         // Arrange
@@ -275,9 +245,6 @@ class GiftCardFacadeTest extends Unit
         $this->tester->assertPaymentGiftCardExistBySalesPaymentIdAndCode($idSalesPayment, static::TEST_GIFT_CARD_CODE);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveOrderGiftCardsShouldCreateSalesOrderItemGiftCardEntities(): void
     {
         // Arrange
@@ -317,9 +284,6 @@ class GiftCardFacadeTest extends Unit
         $this->tester->assertSalesOrderItemGiftCardExistBySalesPaymentId($saveOrderTransfer->getIdSalesOrder(), 2);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveOrderGiftCardsWithZeroGiftCardAmountShouldNotCreatePaymentGiftCardEntity(): void
     {
         // Arrange
@@ -345,9 +309,6 @@ class GiftCardFacadeTest extends Unit
         $this->tester->assertPaymentGiftCardExistBySalesPaymentId($idSalesPayment, 0);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveOrderGiftCardsWithoutGiftCardShouldNotCreatePaymentGiftCardEntity(): void
     {
         // Arrange
@@ -370,9 +331,6 @@ class GiftCardFacadeTest extends Unit
         $this->tester->assertPaymentGiftCardExistBySalesPaymentId($idSalesPayment, 0);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveOrderGiftCardsExecutePluginStack(): void
     {
         // Arrange
@@ -405,9 +363,6 @@ class GiftCardFacadeTest extends Unit
         $this->getFacade()->saveOrderGiftCards($quoteTransfer, new SaveOrderTransfer());
     }
 
-    /**
-     * @return void
-     */
     public function testBuildPaymentMapKeyReturnsMapKeyAccordingToThePattern(): void
     {
         // Arrange
@@ -512,9 +467,6 @@ class GiftCardFacadeTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     protected function getDataWithOnlyGiftCardItems(): array
     {
         $giftCardMetadataBuilder = new GiftCardMetadataBuilder([GiftCardMetadataTransfer::IS_GIFT_CARD => true]);
@@ -534,9 +486,6 @@ class GiftCardFacadeTest extends Unit
         return [$shipmentGroupTransfer, ['NoShipment'], ['Test method 1', 'Test method 2']];
     }
 
-    /**
-     * @return array
-     */
     public function getDataWithNotOnlyGiftCardItems(): array
     {
         $giftCardMetadataBuilder = (new GiftCardMetadataBuilder([GiftCardMetadataTransfer::IS_GIFT_CARD => true]));
@@ -577,9 +526,6 @@ class GiftCardFacadeTest extends Unit
             ->getMock();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Business\GiftCardFacadeInterface
-     */
     protected function getFacadeWithMockedConfig(): GiftCardFacadeInterface
     {
         /** @var \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\GiftCard\GiftCardConfig $configMock */

@@ -20,9 +20,6 @@ class ShipmentGroupsSanitizer implements ShipmentGroupsSanitizerInterface
      */
     protected $giftCardItemsChecker;
 
-    /**
-     * @param \Spryker\Zed\GiftCard\Business\Checker\GiftCardItemsCheckerInterface $giftCardItemsChecker
-     */
     public function __construct(GiftCardItemsCheckerInterface $giftCardItemsChecker)
     {
         $this->giftCardItemsChecker = $giftCardItemsChecker;
@@ -46,11 +43,6 @@ class ShipmentGroupsSanitizer implements ShipmentGroupsSanitizerInterface
         return $shipmentGroupCollection;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentGroupTransfer
-     */
     protected function sanitizeOnlyGiftCardItemsShipment(ShipmentGroupTransfer $shipmentGroupTransfer): ShipmentGroupTransfer
     {
         $shipmentGroupTransfer->requireShipment()
@@ -68,11 +60,6 @@ class ShipmentGroupsSanitizer implements ShipmentGroupsSanitizerInterface
         return $shipmentGroupTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodsTransfer $shipmentMethodsTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentMethodTransfer|null
-     */
     protected function findNoShipmentMethod(ShipmentMethodsTransfer $shipmentMethodsTransfer): ?ShipmentMethodTransfer
     {
         foreach ($shipmentMethodsTransfer->getMethods() as $shipmentMethodTransfer) {

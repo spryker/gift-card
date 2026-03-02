@@ -57,9 +57,6 @@ class RecalculationTest extends Unit
      */
     protected GiftCardBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -67,20 +64,12 @@ class RecalculationTest extends Unit
         $this->tester->configureTestStateMachine([static::DEFAULT_OMS_PROCESS_NAME]);
     }
 
-    /**
-     * @return void
-     */
     public function testShouldUpdateActualAmountOfGiftCardPaymentWhenGiftCardActualAmountHasChanged(): void
     {
         // Arrange
         $this->tester->setDependency(
             GiftCardDependencyProvider::GIFT_CARD_VALUE_PROVIDER,
             new class extends AbstractPlugin implements GiftCardValueProviderPluginInterface {
-                /**
-                 * @param \Generated\Shared\Transfer\GiftCardTransfer $giftCardTransfer
-                 *
-                 * @return int
-                 */
                 public function getValue(GiftCardTransfer $giftCardTransfer): int
                 {
                     return RecalculationTest::GIFT_CARD_AVAILABLE_AMOUNT;
@@ -117,9 +106,6 @@ class RecalculationTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testShouldUpdateActualAmountOfGiftCardPaymentWhenGiftCardActualAmountEqualsItsValue(): void
     {
         // Arrange

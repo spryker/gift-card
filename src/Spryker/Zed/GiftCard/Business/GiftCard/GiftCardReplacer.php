@@ -29,11 +29,6 @@ class GiftCardReplacer implements GiftCardReplacerInterface
      */
     protected $giftCardCodeGenerator;
 
-    /**
-     * @param \Spryker\Zed\GiftCard\Business\GiftCard\GiftCardReaderInterface $giftCardReader
-     * @param \Spryker\Zed\GiftCard\Business\GiftCard\GiftCardCreatorInterface $giftCardCreator
-     * @param \Spryker\Zed\GiftCard\Business\GiftCard\GiftCardCodeGeneratorInterface $giftCardCodeGenerator
-     */
     public function __construct(
         GiftCardReaderInterface $giftCardReader,
         GiftCardCreatorInterface $giftCardCreator,

@@ -39,12 +39,6 @@ class GiftCardCalculator implements GiftCardCalculatorInterface
      */
     protected $giftCardConfig;
 
-    /**
-     * @param \Spryker\Zed\GiftCard\Business\GiftCard\GiftCardReaderInterface $giftCardReader
-     * @param \Spryker\Zed\GiftCard\Business\GiftCard\GiftCardDecisionRuleCheckerInterface $giftCardDecisionRuleChecker
-     * @param \Spryker\Zed\GiftCard\Business\ActualValueHydrator\GiftCardActualValueHydratorInterface $giftCardActualValueHydrator
-     * @param \Spryker\Zed\GiftCard\GiftCardConfig $giftCardConfig
-     */
     public function __construct(
         GiftCardReaderInterface $giftCardReader,
         GiftCardDecisionRuleCheckerInterface $giftCardDecisionRuleChecker,

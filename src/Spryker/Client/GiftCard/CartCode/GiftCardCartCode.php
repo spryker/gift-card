@@ -92,11 +92,6 @@ class GiftCardCartCode implements GiftCardCartCodeInterface
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function clearAllCodes(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         $quoteTransfer->setGiftCards(new ArrayObject());
@@ -125,12 +120,6 @@ class GiftCardCartCode implements GiftCardCartCodeInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string|null $code
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function removeGiftCardPayment(QuoteTransfer $quoteTransfer, ?string $code = null): QuoteTransfer
     {
         foreach ($quoteTransfer->getPayments() as $index => $payment) {
@@ -144,12 +133,6 @@ class GiftCardCartCode implements GiftCardCartCodeInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $code
-     *
-     * @return bool
-     */
     protected function hasCandidate(QuoteTransfer $quoteTransfer, string $code): bool
     {
         foreach ($quoteTransfer->getGiftCards() as $giftCard) {
@@ -161,12 +144,6 @@ class GiftCardCartCode implements GiftCardCartCodeInterface
         return false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $code
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer|null
-     */
     protected function getGiftCardApplySuccessMessage(QuoteTransfer $quoteTransfer, string $code): ?MessageTransfer
     {
         foreach ($quoteTransfer->getGiftCards() as $giftCard) {
@@ -185,12 +162,6 @@ class GiftCardCartCode implements GiftCardCartCodeInterface
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $code
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer|null
-     */
     protected function getGiftCardApplyFailedMessage(QuoteTransfer $quoteTransfer, string $code): ?MessageTransfer
     {
         foreach ($quoteTransfer->getNotApplicableGiftCardCodes() as $giftCardCode) {

@@ -40,9 +40,6 @@ class CreateGiftCardPaymentsFromQuoteTest extends Unit
      */
     protected GiftCardBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testCreatesPaymentGiftCardEntity(): void
     {
         // Arrange
@@ -64,9 +61,6 @@ class CreateGiftCardPaymentsFromQuoteTest extends Unit
         $this->tester->assertPaymentGiftCardExistBySalesPaymentIdAndCode($idSalesPayment, static::TEST_GIFT_CARD_CODE);
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNotCreatePaymentGiftCardEntityWhenPaymentGiftCardIsNotSet(): void
     {
         // Arrange
@@ -86,9 +80,6 @@ class CreateGiftCardPaymentsFromQuoteTest extends Unit
         $this->tester->assertPaymentGiftCardExistBySalesPaymentId($idSalesPayment, 0);
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNotCreatePaymentGiftCardEntityWhenPaymentAmountIsNotSet(): void
     {
         // Arrange
@@ -108,9 +99,6 @@ class CreateGiftCardPaymentsFromQuoteTest extends Unit
         $this->tester->assertPaymentGiftCardExistBySalesPaymentId($idSalesPayment, 0);
     }
 
-    /**
-     * @return void
-     */
     public function testExecutesGiftCardPaymentSaverPluginStack(): void
     {
         // Arrange

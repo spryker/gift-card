@@ -43,9 +43,6 @@ class GiftCardOrderItemsPostSavePluginTest extends Unit
      */
     protected GiftCardCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -54,9 +51,6 @@ class GiftCardOrderItemsPostSavePluginTest extends Unit
         $this->tester->ensureSalesOrderItemGiftCardDatabaseTableIsEmpty();
     }
 
-    /**
-     * @return void
-     */
     public function testShouldNotCreateAnyGiftCards(): void
     {
         // Arrange
@@ -69,9 +63,6 @@ class GiftCardOrderItemsPostSavePluginTest extends Unit
         $this->assertSame(0, $this->tester->getSalesOrderItemGiftCardQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldNotCreateGiftCardWithIsGiftCardFalse(): void
     {
         // Arrange
@@ -84,9 +75,6 @@ class GiftCardOrderItemsPostSavePluginTest extends Unit
         $this->assertSame(0, $this->tester->getSalesOrderItemGiftCardQuery()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldCreateGiftCard(): void
     {
         // Arrange
@@ -99,9 +87,6 @@ class GiftCardOrderItemsPostSavePluginTest extends Unit
         $this->assertSalesOrderItemGiftCardEntity($quoteTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testShouldThrowPropelExceptionWhenIdSalesOrderItemIsNotSet(): void
     {
         // Arrange
@@ -115,11 +100,6 @@ class GiftCardOrderItemsPostSavePluginTest extends Unit
         (new GiftCardOrderItemsPostSavePlugin())->execute(new SaveOrderTransfer(), $quoteTransfer);
     }
 
-    /**
-     * @param bool|null $isGiftCard
-     *
-     * @return \Generated\Shared\Transfer\GiftCardMetadataTransfer
-     */
     protected function createGiftCardMetadataTransfer(?bool $isGiftCard = true): GiftCardMetadataTransfer
     {
         return (new GiftCardMetadataTransfer())
@@ -129,11 +109,6 @@ class GiftCardOrderItemsPostSavePluginTest extends Unit
             );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     protected function assertSalesOrderItemGiftCardEntity(QuoteTransfer $quoteTransfer): void
     {
         /** @var \Generated\Shared\Transfer\ItemTransfer $itemTransfer */
@@ -150,11 +125,6 @@ class GiftCardOrderItemsPostSavePluginTest extends Unit
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GiftCardMetadataTransfer|null $giftCardMetadataTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function createOrder(?GiftCardMetadataTransfer $giftCardMetadataTransfer = null): QuoteTransfer
     {
         if ($giftCardMetadataTransfer) {

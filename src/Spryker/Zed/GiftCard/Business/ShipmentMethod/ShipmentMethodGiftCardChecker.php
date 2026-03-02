@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\ShipmentGroupTransfer;
 
 class ShipmentMethodGiftCardChecker implements ShipmentMethodGiftCardCheckerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     *
-     * @return bool
-     */
     public function containsOnlyGiftCardItems(ShipmentGroupTransfer $shipmentGroupTransfer): bool
     {
         foreach ($shipmentGroupTransfer->getItems() as $itemTransfer) {
@@ -28,11 +23,6 @@ class ShipmentMethodGiftCardChecker implements ShipmentMethodGiftCardCheckerInte
         return true;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isGiftCard(ItemTransfer $itemTransfer): bool
     {
         $giftCardMetadataTransfer = $itemTransfer->getGiftCardMetadata();

@@ -17,9 +17,6 @@ class GiftCardActualValueHydrator implements GiftCardActualValueHydratorInterfac
      */
     protected $giftCardValueProviderPlugin;
 
-    /**
-     * @param \Spryker\Zed\GiftCard\Dependency\Plugin\GiftCardValueProviderPluginInterface $giftCardValueProviderPlugin
-     */
     public function __construct(GiftCardValueProviderPluginInterface $giftCardValueProviderPlugin)
     {
         $this->giftCardValueProviderPlugin = $giftCardValueProviderPlugin;

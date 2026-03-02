@@ -27,10 +27,6 @@ class OrderGiftCardsRelationshipWriter implements OrderGiftCardsRelationshipWrit
      */
     protected $salesOrderPaymentSaver;
 
-    /**
-     * @param \Spryker\Zed\GiftCard\Business\Sales\SalesOrderItemSaverInterface $salesOrderItemSaver
-     * @param \Spryker\Zed\GiftCard\Business\Payment\SalesOrderPaymentSaverInterface $salesOrderPaymentSaver
-     */
     public function __construct(
         SalesOrderItemSaverInterface $salesOrderItemSaver,
         SalesOrderPaymentSaverInterface $salesOrderPaymentSaver
@@ -39,12 +35,6 @@ class OrderGiftCardsRelationshipWriter implements OrderGiftCardsRelationshipWrit
         $this->salesOrderPaymentSaver = $salesOrderPaymentSaver;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     *
-     * @return void
-     */
     public function saveOrderGiftCards(QuoteTransfer $quoteTransfer, SaveOrderTransfer $saveOrderTransfer): void
     {
         $this->salesOrderItemSaver->saveSalesOrderItemGiftCards($quoteTransfer);

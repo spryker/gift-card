@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class GiftCardCartCodeClearer implements GiftCardCartCodeClearerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function clearCartCodes(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         return $quoteTransfer

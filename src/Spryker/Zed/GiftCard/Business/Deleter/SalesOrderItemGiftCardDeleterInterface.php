@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\SalesOrderItemGiftCardCollectionResponseTransfer;
 
 interface SalesOrderItemGiftCardDeleterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderItemGiftCardCollectionDeleteCriteriaTransfer $salesOrderItemGiftCardCollectionDeleteCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderItemGiftCardCollectionResponseTransfer
-     */
     public function deleteSalesOrderItemGiftCardCollection(
         SalesOrderItemGiftCardCollectionDeleteCriteriaTransfer $salesOrderItemGiftCardCollectionDeleteCriteriaTransfer
     ): SalesOrderItemGiftCardCollectionResponseTransfer;

@@ -43,29 +43,17 @@ class GiftCardBusinessTester extends Actor
      */
     public const GIFT_CARD_CODE = 'testCode1';
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function createQuoteTransferWithoutGiftCard(): QuoteTransfer
     {
         return $this->createQuoteTransfer();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function createQuoteTransferWithGiftCard(): QuoteTransfer
     {
         return $this->createQuoteTransfer()
             ->addGiftCard((new GiftCardTransfer())->setCode(static::GIFT_CARD_CODE));
     }
 
-    /**
-     * @param int $idSalesPayment
-     * @param int $expectedCount
-     *
-     * @return void
-     */
     public function assertPaymentGiftCardExistBySalesPaymentId(int $idSalesPayment, int $expectedCount): void
     {
         $paymentGiftCards = (new GiftCardQueryContainer())->queryPaymentGiftCards()
@@ -74,12 +62,6 @@ class GiftCardBusinessTester extends Actor
         $this->assertCount($expectedCount, $paymentGiftCards);
     }
 
-    /**
-     * @param int $idSalesOrder
-     * @param int $expectedCount
-     *
-     * @return void
-     */
     public function assertSalesOrderItemGiftCardExistBySalesPaymentId(int $idSalesOrder, int $expectedCount): void
     {
         $salesOrderItemGiftCardEntities = (new SpySalesOrderItemGiftCardQuery())
@@ -91,12 +73,6 @@ class GiftCardBusinessTester extends Actor
         $this->assertCount($expectedCount, $salesOrderItemGiftCardEntities);
     }
 
-    /**
-     * @param int $idSalesPayment
-     * @param string $code
-     *
-     * @return void
-     */
     public function assertPaymentGiftCardExistBySalesPaymentIdAndCode(int $idSalesPayment, string $code): void
     {
         $paymentGiftCards = (new GiftCardQueryContainer())->queryPaymentGiftCards()
@@ -106,9 +82,6 @@ class GiftCardBusinessTester extends Actor
         $this->assertCount(1, $paymentGiftCards);
     }
 
-    /**
-     * @return int
-     */
     public function createSalesPaymentEntity(): int
     {
         $this->configureTestStateMachine([BusinessHelper::DEFAULT_OMS_PROCESS_NAME]);
@@ -123,11 +96,6 @@ class GiftCardBusinessTester extends Actor
         return $salesPaymentEntity->getIdSalesPayment();
     }
 
-    /**
-     * @param int $idSalesPayment
-     *
-     * @return void
-     */
     public function createPaymentGiftCardEntity(int $idSalesPayment): void
     {
         $paymentGiftCardEntity = new SpyPaymentGiftCard();
@@ -137,11 +105,6 @@ class GiftCardBusinessTester extends Actor
         $paymentGiftCardEntity->save();
     }
 
-    /**
-     * @param int $idSalesOrderItem
-     *
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemGiftCard
-     */
     public function createSalesOrderItemGiftCard(int $idSalesOrderItem): SpySalesOrderItemGiftCard
     {
         $salesOrderItemGiftCardEntity = (new SpySalesOrderItemGiftCard())
@@ -152,9 +115,6 @@ class GiftCardBusinessTester extends Actor
         return $salesOrderItemGiftCardEntity;
     }
 
-    /**
-     * @return void
-     */
     public function ensureSalesOrderItemGiftCardTableIsEmpty(): void
     {
         $this->ensureDatabaseTableIsEmpty($this->getSalesOrderItemGiftCardQuery());
@@ -168,9 +128,6 @@ class GiftCardBusinessTester extends Actor
         return $this->getSalesOrderItemGiftCardQuery()->find();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function createQuoteTransfer(): QuoteTransfer
     {
         $quoteTransfer = new QuoteTransfer();
@@ -181,9 +138,6 @@ class GiftCardBusinessTester extends Actor
         return $quoteTransfer->addItem($itemTransfer);
     }
 
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemGiftCardQuery
-     */
     protected function getSalesOrderItemGiftCardQuery(): SpySalesOrderItemGiftCardQuery
     {
         return SpySalesOrderItemGiftCardQuery::create();

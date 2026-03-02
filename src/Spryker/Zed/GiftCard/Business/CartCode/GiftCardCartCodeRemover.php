@@ -11,12 +11,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class GiftCardCartCodeRemover implements GiftCardCartCodeRemoverInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $cartCode
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function removeCartCode(QuoteTransfer $quoteTransfer, string $cartCode): QuoteTransfer
     {
         $quoteTransfer = $this->removeGiftCard($quoteTransfer, $cartCode);
@@ -43,12 +37,6 @@ class GiftCardCartCodeRemover implements GiftCardCartCodeRemoverInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string|null $code
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function removeGiftCardPayment(QuoteTransfer $quoteTransfer, ?string $code = null): QuoteTransfer
     {
         foreach ($quoteTransfer->getPayments() as $index => $payment) {

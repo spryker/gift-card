@@ -16,11 +16,6 @@ class GiftCardHelper extends Module
 {
     use LocatorHelperTrait;
 
-    /**
-     * @param array $seedData
-     *
-     * @return \Generated\Shared\Transfer\GiftCardTransfer
-     */
     public function haveGiftCard(array $seedData = []): GiftCardTransfer
     {
         $giftCardTransfer = (new GiftCardBuilder($seedData))->build();

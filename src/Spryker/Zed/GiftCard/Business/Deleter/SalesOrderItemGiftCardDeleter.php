@@ -13,18 +13,10 @@ use Spryker\Zed\GiftCard\Persistence\GiftCardEntityManagerInterface;
 
 class SalesOrderItemGiftCardDeleter implements SalesOrderItemGiftCardDeleterInterface
 {
-    /**
-     * @param \Spryker\Zed\GiftCard\Persistence\GiftCardEntityManagerInterface $giftCardEntityManager
-     */
     public function __construct(protected GiftCardEntityManagerInterface $giftCardEntityManager)
     {
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesOrderItemGiftCardCollectionDeleteCriteriaTransfer $salesOrderItemGiftCardCollectionDeleteCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesOrderItemGiftCardCollectionResponseTransfer
-     */
     public function deleteSalesOrderItemGiftCardCollection(
         SalesOrderItemGiftCardCollectionDeleteCriteriaTransfer $salesOrderItemGiftCardCollectionDeleteCriteriaTransfer
     ): SalesOrderItemGiftCardCollectionResponseTransfer {

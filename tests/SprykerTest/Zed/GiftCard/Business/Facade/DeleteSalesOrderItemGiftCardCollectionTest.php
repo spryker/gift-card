@@ -34,9 +34,6 @@ class DeleteSalesOrderItemGiftCardCollectionTest extends Unit
      */
     protected GiftCardBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -45,9 +42,6 @@ class DeleteSalesOrderItemGiftCardCollectionTest extends Unit
         $this->tester->ensureSalesOrderItemGiftCardTableIsEmpty();
     }
 
-    /**
-     * @return void
-     */
     public function testDeletesSalesOrderItemGiftCardEntitiesBySalesOrderItemIds(): void
     {
         // Arrange
@@ -69,9 +63,6 @@ class DeleteSalesOrderItemGiftCardCollectionTest extends Unit
         $this->assertSame($salesOrderItemGiftCardEntity->getIdSalesOrderItemGiftCard(), $salesOrderItemGiftCardEntities[0]->getIdSalesOrderItemGiftCard());
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNotDeleteSalesOrderItemGiftCardEntitiesWhenNoEntitiesFoundBySalesOrderItemIds(): void
     {
         // Arrange
@@ -90,9 +81,6 @@ class DeleteSalesOrderItemGiftCardCollectionTest extends Unit
         $this->assertSame($salesOrderItemGiftCardEntity->getIdSalesOrderItemGiftCard(), $salesOrderItemGiftCardEntities[0]->getIdSalesOrderItemGiftCard());
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNotDeleteSalesOrderItemGiftCardEntitiesWhenNoCriteriaConditionsAreSet(): void
     {
         // Arrange

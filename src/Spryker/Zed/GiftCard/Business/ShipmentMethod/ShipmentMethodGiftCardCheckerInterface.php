@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ShipmentGroupTransfer;
 
 interface ShipmentMethodGiftCardCheckerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     *
-     * @return bool
-     */
     public function containsOnlyGiftCardItems(ShipmentGroupTransfer $shipmentGroupTransfer): bool;
 }

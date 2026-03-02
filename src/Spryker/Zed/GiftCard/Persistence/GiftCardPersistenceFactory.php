@@ -63,9 +63,6 @@ class GiftCardPersistenceFactory extends AbstractPersistenceFactory
         return SpySalesOrderItemGiftCardQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\GiftCard\Persistence\Propel\Mapper\GiftCardMapper
-     */
     public function createGiftCardMapper(): GiftCardMapper
     {
         return new GiftCardMapper();

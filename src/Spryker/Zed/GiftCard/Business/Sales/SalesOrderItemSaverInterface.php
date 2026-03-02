@@ -22,10 +22,5 @@ interface SalesOrderItemSaverInterface
      */
     public function saveSalesOrderGiftCardItems(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponse);
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     public function saveSalesOrderItemGiftCards(QuoteTransfer $quoteTransfer): void;
 }

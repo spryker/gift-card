@@ -55,12 +55,6 @@ class SalesOrderPaymentSaver implements SalesOrderPaymentSaverInterface
         $this->executeSaveGiftCardPaymentsTransaction($quoteTransfer, $checkoutResponse);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     *
-     * @return void
-     */
     public function saveGiftCardOrderPayments(QuoteTransfer $quoteTransfer, SaveOrderTransfer $saveOrderTransfer): void
     {
         // For BC reasons only, will not be used in the future.
@@ -70,12 +64,6 @@ class SalesOrderPaymentSaver implements SalesOrderPaymentSaverInterface
         $this->executeSaveGiftCardPaymentsTransaction($quoteTransfer, $checkoutResponse);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponse
-     *
-     * @return void
-     */
     protected function executeSaveGiftCardPaymentsTransaction(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponse): void
     {
         $giftCardPayments = $this->getGiftCardPayments($quoteTransfer);

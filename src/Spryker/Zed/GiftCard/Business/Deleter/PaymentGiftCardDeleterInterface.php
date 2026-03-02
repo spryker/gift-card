@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\PaymentGiftCardCollectionDeleteCriteriaTransfer;
 
 interface PaymentGiftCardDeleterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PaymentGiftCardCollectionDeleteCriteriaTransfer $paymentGiftCardCollectionDeleteCriteriaTransfer
-     *
-     * @return void
-     */
     public function deletePaymentGiftCardCollection(
         PaymentGiftCardCollectionDeleteCriteriaTransfer $paymentGiftCardCollectionDeleteCriteriaTransfer
     ): void;

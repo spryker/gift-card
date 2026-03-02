@@ -30,9 +30,6 @@ class GiftCardCommunicationTester extends Actor
 {
     use _generated\GiftCardCommunicationTesterActions;
 
-    /**
-     * @return void
-     */
     public function ensureSalesOrderItemGiftCardDatabaseTableIsEmpty(): void
     {
         $this->ensureDatabaseTableIsEmpty(
@@ -40,11 +37,6 @@ class GiftCardCommunicationTester extends Actor
         );
     }
 
-    /**
-     * @param int $idSalesOrderItem
-     *
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemGiftCard
-     */
     public function findSalesOrderItemGiftCard(int $idSalesOrderItem): SpySalesOrderItemGiftCard
     {
         return $this->getSalesOrderItemGiftCardQuery()
@@ -52,9 +44,6 @@ class GiftCardCommunicationTester extends Actor
             ->findOne();
     }
 
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemGiftCardQuery
-     */
     public function getSalesOrderItemGiftCardQuery(): SpySalesOrderItemGiftCardQuery
     {
         return SpySalesOrderItemGiftCardQuery::create();

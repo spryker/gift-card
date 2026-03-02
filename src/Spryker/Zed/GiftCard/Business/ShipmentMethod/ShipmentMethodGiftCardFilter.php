@@ -22,10 +22,6 @@ class ShipmentMethodGiftCardFilter implements ShipmentMethodGiftCardFilterInterf
      */
     protected $shipmentMethodGiftCardAllowanceChecker;
 
-    /**
-     * @param \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodCollectionRemoverInterface $shipmentMethodCollectionRemover
-     * @param \Spryker\Zed\GiftCard\Business\ShipmentMethod\ShipmentMethodGiftCardAllowanceCheckerInterface $shipmentMethodGiftCardAllowanceChecker
-     */
     public function __construct(
         ShipmentMethodCollectionRemoverInterface $shipmentMethodCollectionRemover,
         ShipmentMethodGiftCardAllowanceCheckerInterface $shipmentMethodGiftCardAllowanceChecker

@@ -16,11 +16,6 @@ class PaymentMapKeyBuilder implements PaymentMapKeyBuilderInterface
      */
     protected const PAYMENT_MAP_KEY_PATTERN = '%s-%s-%s';
 
-    /**
-     * @param \Generated\Shared\Transfer\PaymentTransfer $paymentTransfer
-     *
-     * @return string
-     */
     public function buildMapKey(PaymentTransfer $paymentTransfer): string
     {
         return sprintf(

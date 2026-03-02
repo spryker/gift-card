@@ -45,12 +45,6 @@ class GiftCardReader implements GiftCardReaderInterface
      */
     protected $giftCardRepository;
 
-    /**
-     * @param \Spryker\Zed\GiftCard\Persistence\GiftCardQueryContainerInterface $queryContainer
-     * @param \Spryker\Zed\GiftCard\Business\ActualValueHydrator\GiftCardActualValueHydratorInterface $giftCardActualValueHydrator
-     * @param \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface $encodingService
-     * @param \Spryker\Zed\GiftCard\Persistence\GiftCardRepositoryInterface $giftCardRepository
-     */
     public function __construct(
         GiftCardQueryContainerInterface $queryContainer,
         GiftCardActualValueHydratorInterface $giftCardActualValueHydrator,

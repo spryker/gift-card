@@ -36,11 +36,6 @@ class GiftCardCreator implements GiftCardCreatorInterface
      */
     protected $giftCardCodeGenerator;
 
-    /**
-     * @param \Spryker\Zed\GiftCard\Business\GiftCard\GiftCardReaderInterface $giftCardReader
-     * @param \Spryker\Zed\GiftCard\Business\GiftCard\GiftCardCodeGeneratorInterface $giftCardCodeGenerator
-     * @param \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface $encodingService
-     */
     public function __construct(
         GiftCardReaderInterface $giftCardReader,
         GiftCardCodeGeneratorInterface $giftCardCodeGenerator,

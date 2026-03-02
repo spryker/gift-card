@@ -29,9 +29,6 @@ class MetadataExpander implements MetadataExpanderInterface
      */
     protected $giftCardReader;
 
-    /**
-     * @param \Spryker\Zed\GiftCard\Business\GiftCard\GiftCardReaderInterface $giftCardReader
-     */
     public function __construct(GiftCardReaderInterface $giftCardReader)
     {
         $this->giftCardReader = $giftCardReader;
