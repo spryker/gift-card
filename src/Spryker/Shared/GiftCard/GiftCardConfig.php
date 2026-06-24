@@ -12,6 +12,8 @@ use Spryker\Shared\Kernel\AbstractBundleConfig;
 class GiftCardConfig extends AbstractBundleConfig
 {
     /**
+     * @api
+     *
      * @uses \Spryker\Shared\Shipment\ShipmentConfig::SHIPMENT_METHOD_NAME_NO_SHIPMENT
      *
      * @var string
