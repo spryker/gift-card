@@ -307,6 +307,23 @@ class GiftCardReader implements GiftCardReaderInterface
         return $this->findByCode($salesOrderItemGiftCardEntity->getCode());
     }
 
+    public function findGiftCardByIdSalesPayment(?int $idSalesPayment): ?GiftCardTransfer
+    {
+        if ($idSalesPayment === null) {
+            return null;
+        }
+
+        $paymentGiftCardEntity = $this->queryContainer
+            ->queryPaymentGiftCardsForIdSalesPayment($idSalesPayment)
+            ->findOne();
+
+        if (!$paymentGiftCardEntity) {
+            return null;
+        }
+
+        return $this->findByCode($paymentGiftCardEntity->getCode());
+    }
+
     /**
      * @param array<string> $giftCardCodes
      *

@@ -134,4 +134,32 @@ class RecalculationTest extends Unit
         // Assert
         $this->assertSame(static::GIFT_CARD_VALUE, $paymentTransfer->getAvailableAmount());
     }
+
+    public function testRecalculateDoesNotCrashWhenANonApplicableGiftCardCoexistsWithANonGiftCardPayment(): void
+    {
+        // Arrange
+        $currencyTransfer = (new CurrencyBuilder())->seed([
+            CurrencyTransfer::CODE => static::CURRENCY_CODE_EUR,
+        ])->build();
+        $giftCardTransfer = $this->tester->haveGiftCard([
+            GiftCardTransfer::IS_ACTIVE => true,
+            GiftCardTransfer::VALUE => static::GIFT_CARD_VALUE,
+            GiftCardTransfer::CURRENCY_ISO_CODE => 'USD',
+        ]);
+
+        $quoteTransfer = (new QuoteTransfer())->setCurrency($currencyTransfer);
+        $regularPaymentTransfer = (new PaymentTransfer())->setPaymentMethod('dummyPaymentInvoice');
+        $calculableObjectTransfer = (new CalculableObjectTransfer())
+            ->addPayment($regularPaymentTransfer)
+            ->setOriginalQuote($quoteTransfer)
+            ->addGiftCard($giftCardTransfer);
+
+        // Act
+        $this->tester->getFacade()->recalculate($calculableObjectTransfer);
+
+        // Assert
+        $this->assertContains($giftCardTransfer->getCode(), $calculableObjectTransfer->getNotApplicableGiftCardCodes());
+        $this->assertCount(1, $calculableObjectTransfer->getPayments());
+        $this->assertSame($regularPaymentTransfer, $calculableObjectTransfer->getPayments()->offsetGet(0));
+    }
 }

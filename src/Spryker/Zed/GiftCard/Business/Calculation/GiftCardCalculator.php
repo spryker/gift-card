@@ -240,6 +240,8 @@ class GiftCardCalculator implements GiftCardCalculatorInterface
         foreach ($calculableObjectTransfer->getPayments() as $paymentTransfer) {
             if (!$paymentTransfer->getGiftCard()) {
                 $payments[] = $paymentTransfer;
+
+                continue;
             }
 
             if ($paymentTransfer->getGiftCard()->getCode() !== $giftCardTransfer->getCode()) {
