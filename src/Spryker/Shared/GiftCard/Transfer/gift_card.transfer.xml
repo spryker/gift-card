@@ -142,6 +142,8 @@
     </transfer>
 
     <transfer name="SaveOrder">
+        <property name="idSalesOrder" type="int"/>
+        <property name="orderItems" type="Item[]" singular="orderItem"/>
     </transfer>
 
     <transfer name="AclEntityMetadataConfig">

@@ -31,6 +31,7 @@ use SprykerTest\Zed\Sales\Helper\BusinessHelper;
  * @method void comment($description)
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = null)
  * @method \Spryker\Zed\GiftCard\Business\GiftCardFacadeInterface getFacade()
+ * @method \Spryker\Zed\GiftCard\GiftCardConfig getModuleConfig()
  *
  * @SuppressWarnings(\SprykerTest\Zed\GiftCard\PHPMD)
  */
@@ -42,6 +43,11 @@ class GiftCardBusinessTester extends Actor
      * @var string
      */
     public const GIFT_CARD_CODE = 'testCode1';
+
+    /**
+     * @var array<string, string>
+     */
+    protected const array GIFT_CARD_ATTRIBUTES = ['value' => '1500'];
 
     public function createQuoteTransferWithoutGiftCard(): QuoteTransfer
     {
@@ -110,6 +116,21 @@ class GiftCardBusinessTester extends Actor
         $salesOrderItemGiftCardEntity = (new SpySalesOrderItemGiftCard())
             ->setFkSalesOrderItem($idSalesOrderItem)
             ->setCode(static::GIFT_CARD_CODE);
+        $salesOrderItemGiftCardEntity->save();
+
+        return $salesOrderItemGiftCardEntity;
+    }
+
+    public function createSalesOrderItemGiftCardWithCodePattern(
+        int $idSalesOrderItem,
+        string $codePattern,
+        ?int $value = null
+    ): SpySalesOrderItemGiftCard {
+        $salesOrderItemGiftCardEntity = (new SpySalesOrderItemGiftCard())
+            ->setFkSalesOrderItem($idSalesOrderItem)
+            ->setPattern($codePattern)
+            ->setValue($value)
+            ->setAttributes(json_encode(static::GIFT_CARD_ATTRIBUTES));
         $salesOrderItemGiftCardEntity->save();
 
         return $salesOrderItemGiftCardEntity;
