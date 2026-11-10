@@ -7,9 +7,9 @@
 
 namespace Spryker\Shared\GiftCard;
 
-use Spryker\Shared\Kernel\AbstractBundleConfig;
+use Spryker\Shared\Kernel\AbstractSharedConfig;
 
-class GiftCardConfig extends AbstractBundleConfig
+class GiftCardConfig extends AbstractSharedConfig
 {
     /**
      * @api
